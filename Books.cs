@@ -18,6 +18,14 @@ namespace LibraryForLambda
             string _bookname;
         float _price;
 
+        public void AssignBookData((int Bookid, string BookName, float BookPrice) bdata)
+        { 
+        
+        _bookid=bdata.Bookid;
+            _bookname=bdata.BookName;
+                _price  =bdata.BookPrice;
+        }
+
         public void SetBookData(Tuple<int, string, float> bookData)
         {
             //Bookid = bookData.Item1;
@@ -34,6 +42,12 @@ namespace LibraryForLambda
         {
             Tuple<int, string, float> tuple1 = Tuple.Create<int, string, float>(_bookid, _bookname, _price);
             return tuple1;
+        }
+
+        public  (int Bookid, string BookName, float BookPrice) DisplayBookData()
+        {
+            
+            return (BookId:_bookid, BookName:_bookname,BookPrice:_price);
         }
     }
 }

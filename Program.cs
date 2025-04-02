@@ -14,16 +14,45 @@ internal class Program
         //WorkWithActionFuncAndPredicateLambda();
         //ParitalClassMethodsAndDynamic();
 
+        //TupleWorking();
+
+        (int, string) person = (1, "Hari");
+        Console.WriteLine(person.Item1);
+        Console.WriteLine(person.Item2);
+
+        (int, string, string, float, double) data = (11, "Jack", "Mumbai", 344.33f, 3435.234d);
+        Console.WriteLine(data);
+
+        (int Catid, string CatName, string Description, float AvgPrice, double TotalPrice) Catdata = (Catid: 11, CatName: "Beverages", Description: "All Beverages", AvgPrice: 344.33f, TotalPrice: 3435.234d);
+       
+        Console.WriteLine("===================Using Methods with Value Tupe==========================");
+
+        (int Bookid, string BookName, float BookPrice) bdata = (Bookid:11,BookName:"Learn DesignPattern",BookPrice:1400);
+
+        Books newbookData=new  Books();
+        newbookData.AssignBookData(bdata);
+        (int Bookid, string BookName, float BookPrice) bookData = newbookData.DisplayBookData();
+        Console.WriteLine(bookData.Bookid);
+        Console.WriteLine(bookData.BookName);
+        Console.WriteLine(bookData.BookPrice);
+
+
+
+
+    }
+
+    private static void TupleWorking()
+    {
         //Tuple means Row. A row can store a single value or multiple values
         Tuple<int> tuple = Tuple.Create(10);
         Console.WriteLine(tuple.Item1);
 
-        Tuple<Employee> emp = Tuple.Create(new Employee {Empid=1,Ename="Suraj",Email="suraj@gmail.com" });
+        Tuple<Employee> emp = Tuple.Create(new Employee { Empid = 1, Ename = "Suraj", Email = "suraj@gmail.com" });
         Console.WriteLine(emp.Item1.Empid);
         Console.WriteLine(emp.Item1.Ename);
         Console.WriteLine(emp.Item1.Email);
         Console.WriteLine("========================");
-        var empdata= Tuple.Create(new Employee { Empid = 2, Ename = "Hemant", Email = "hemant@gmail.com" });
+        var empdata = Tuple.Create(new Employee { Empid = 2, Ename = "Hemant", Email = "hemant@gmail.com" });
 
         Console.WriteLine(empdata.Item1.Empid);
         Console.WriteLine(empdata.Item1.Ename);
@@ -41,8 +70,8 @@ internal class Program
         Console.WriteLine(somedata.Rest.Item1.Item1);
         Console.WriteLine(somedata.Rest.Item1.Item2);
         Console.WriteLine("-------------------Using Tuple in a method parameter--------------------");
-        Books b=new Books();
-        Tuple<int, string, float> tuple2 = Tuple.Create<int,string,float>(11, "Learn C#", 1000.00f);
+        Books b = new Books();
+        Tuple<int, string, float> tuple2 = Tuple.Create<int, string, float>(11, "Learn C#", 1000.00f);
         b.SetBookData(tuple2);
 
         Tuple<int, string, float> tuple3 = b.GetBookData();
@@ -54,9 +83,6 @@ internal class Program
         //Console.WriteLine(b.Bookid);
         //Console.WriteLine(b.BookName);
         //Console.WriteLine(b.Price);
-
-
-
     }
 
     private static void ParitalClassMethodsAndDynamic()
