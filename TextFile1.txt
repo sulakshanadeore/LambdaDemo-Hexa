@@ -6,3 +6,28 @@ Types:
 1) Action: The methods which have void return type
 2) Func: The methods where return type  is anything other than void
 3) Predicate: The method has a return type as bool only
+-------------------------------------------------------------
+
+Partial Class:
+
+
+Alan     Arun      Mythily
+
+Alan: partial Class Employee{
+
+public partial void InsertData(Employee emp){
+
+
+}
+
+}
+
+Arun :
+ public int Empid { get; set; }
+        public string Ename { get; set; }
+        public string Email { get; set; }
+        
+            Console.WriteLine("Trying to insert data of employee in the employee table ");
+
+Mythily:
+ validate the data

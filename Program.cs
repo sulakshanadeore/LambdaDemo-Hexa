@@ -1,4 +1,5 @@
-﻿using LibraryForLambda;
+﻿using LambdaDemo;
+using LibraryForLambda;
 
 internal class Program
 {
@@ -10,6 +11,48 @@ internal class Program
 
         //Total number of Parameters in Action Lambda is 17, all are input parameters 
         //Action lambda--- Action is a delegate , no need to declare a delegate
+        //WorkWithActionFuncAndPredicateLambda();
+        int i = 100;
+        var j = 89.45f;//float
+        //ERROR    j  = 232.34234d;
+        //Disadvantage of var datatype---- > it CANT CHANGE THE TYPE OF DATA IT CAN HOLD, ONCE DECLARED AS FLOAT ALWAYS REMAINS A FLOAT
+        //var is not allowed in the method parameters nor in the return type of method
+        dynamic k = 56.63f;
+        k = "Ramesh";
+       // k = 'C';
+       // k = true;
+        //Advantge of dynamic datatype---- > it CAN CHANGE THE TYPE OF DATA IT CAN HOLD, ONCE DECLARED AS FLOAT IT  CAN CHANGE ANY TIME AND ANY NUMBER OF TIMES
+        //dynamic is allowed in the parameters as well as in the return type of the method.
+
+        dynamic ans=method1(k);
+        Console.WriteLine(ans);
+
+
+        Employee emp=new Employee();
+        emp.InsertData(emp);
+        emp.CalculateSalary();
+
+
+
+
+
+
+
+
+    }
+
+
+    public static dynamic method1(dynamic d1)
+    {
+        dynamic d2;
+        d2 = "HEllo " + d1;
+        return d2;
+    
+    
+    }
+
+    private static void WorkWithActionFuncAndPredicateLambda()
+    {
         Action<string, string> checkUserNameAndPassword = (username, password) =>
         {
             if (username != null && password != null)
@@ -64,21 +107,23 @@ internal class Program
 
         Console.WriteLine("****************************************");
         //Predicate Lambda---- return type is always bool and it takes only one input  parameter
-        Predicate<string> CheckWhetherStringHasVowel = (p) => {
+        Predicate<string> CheckWhetherStringHasVowel = (p) =>
+        {
             if (p.Contains('a') || p.Contains('e') || p.Contains('i') || p.Contains('o') || p.Contains('u'))
             {
 
                 return true;
             }
-            else {
+            else
+            {
 
                 return false;
 
             }
-        
+
         };
 
-        bool result=CheckWhetherStringHasVowel("Rajesh");
+        bool result = CheckWhetherStringHasVowel("Rajesh");
         Console.WriteLine(result);
         Console.WriteLine("------------------");
         result = CheckWhetherStringHasVowel("Hmmmmmm");
