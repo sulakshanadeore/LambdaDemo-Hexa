@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +19,22 @@ namespace LibraryForLambda
             string _bookname;
         float _price;
 
-        public void AssignBookData((int Bookid, string BookName, float BookPrice) bdata)
-        { 
-        
-        _bookid=bdata.Bookid;
-            _bookname=bdata.BookName;
-                _price  =bdata.BookPrice;
+
+        public void AssignBookData((int Bookid, string BookName, float BookPrice) bookdetails)
+        {
+            _bookid = bookdetails.Item1;
+            _bookname = bookdetails.Item2;
+            _price = bookdetails.Item3;
         }
+
+        public static (int bookid, string bname, float bookprice) DisplayBookData()
+        {
+            Books books = new Books();
+     
+
+            return (bookid:books._bookid,bname:books._bookname,bookprice:books._price);
+        }
+
 
         public void SetBookData(Tuple<int, string, float> bookData)
         {
@@ -42,12 +52,6 @@ namespace LibraryForLambda
         {
             Tuple<int, string, float> tuple1 = Tuple.Create<int, string, float>(_bookid, _bookname, _price);
             return tuple1;
-        }
-
-        public  (int Bookid, string BookName, float BookPrice) DisplayBookData()
-        {
-            
-            return (BookId:_bookid, BookName:_bookname,BookPrice:_price);
         }
     }
 }
