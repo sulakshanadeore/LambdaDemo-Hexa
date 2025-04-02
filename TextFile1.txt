@@ -1,0 +1,8 @@
+﻿Lambda:
+Lambda is a brief way of working with delegates.
+It has a short way of writing delegate code.
+
+Types:
+1) Action: The methods which have void return type
+2) Func: The methods where return type  is anything other than void
+3) Predicate: The method has a return type as bool only
